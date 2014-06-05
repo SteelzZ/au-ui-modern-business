@@ -1,0 +1,75 @@
+<template name="about">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header"><span data-au-label="{{path}}page_title">{{c 'page_title' path}}</span>
+                    <small data-au-label="{{path}}page_title_small">{{c 'page_title_small' path}}</small>
+                </h1>
+                <!-- <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li class="active">About</li>
+                </ol> -->
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <img data-au-image="{{path}}about_header_block_image" class="img-responsive" src="{{loadImg 'about_header_block_image' '750x450' path}}">
+            </div>
+            <div class="col-md-6">
+                <h2 data-au-label="{{path}}welcome_title">{{c 'welcome_title' path}}</h2>
+                <p data-type="wysihtml5" data-au-label="{{path}}about_us">{{{c 'about_us' path}}}</p>
+            </div>
+        </div>
+
+        <!-- Team Member Profiles -->
+
+        <div class="row" data-au-record="{{path}}our_team">
+
+            <div class="col-lg-12">
+                <h2 class="page-header" data-au-label="{{path}}our_team">{{c 'our_team' path}}</h2>
+            </div>
+            {{#with recordByPlace path 'our_team'}}
+                {{#each sorted children}}
+                    {{#with this}}
+                        <div class="col-sm-4" data-au-sort-order="{{_id}}" data-au-deletable="{{_id}}">
+                            <img data-au-image="{{_id}}[photo]" class="img-responsive" src="{{loadImg '[photo]' '750x450' _id}}">
+                            <h3><span data-au-label="{{_id}}[name]">{{c 'name' _id}}</span>
+                                <small data-au-label="{{_id}}[job_title]">{{c 'job_title' _id}}</small>
+                            </h3>
+                            <p data-type="wysihtml5" data-au-label="{{_id}}[desc]">{{{c 'desc' _id}}}</p>
+                        </div>
+                    {{/with}}
+                {{/each}}
+            {{/with}}
+
+        </div>
+
+        <!-- Our Customers -->
+
+        <div class="row" data-au-record="{{path}}our_customers">
+
+            <div class="col-lg-12">
+                <h2 class="page-header" data-au-label="{{path}}our_customers">{{c 'our_customers' path}}</h2>
+            </div>
+
+            {{#with recordByPlace path 'our_customers'}}
+                {{#each sorted children}}
+                    {{#with this}}
+                         <div data-au-sort-order="{{_id}}" data-au-deletable="{{_id}}" class="col-md-2 col-sm-4 col-xs-6">
+                            <img data-au-image="{{_id}}[photo]" class="img-responsive img-customer" src="{{loadImg '[photo]' '500x300' _id}}">
+                        </div>
+                    {{/with}}
+                {{/each}}
+            {{/with}}
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+</template>

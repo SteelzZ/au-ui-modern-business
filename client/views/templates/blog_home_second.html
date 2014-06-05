@@ -1,0 +1,60 @@
+<template name="blog_home_second">
+    <div class="container" data-au-record="{{path}}blog_items">
+
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header"><span data-au-label="{{path}}page_title">{{c 'page_title' path}}</span>
+                    <small data-au-label="{{path}}page_title_small">{{c 'page_title_small' path}}</small>
+                </h1>
+                <!-- <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li class="active">Blog Home 2</li>
+                </ol> -->
+            </div>
+
+        </div>
+
+        {{#with recordByPlace path 'blog_items'}}
+            {{#each sorted children _id 5}}
+                {{#with this}}
+                    <div class="row" data-au-sort-order="{{_id}}" data-au-deletable="{{_id}}">
+                        <div class="col-md-1">
+                            <p data-type="date" data-au-label="{{_id}}[when]">{{c '[when]' _id}}</p>
+                        </div>
+                        <div class="col-md-5">
+                            <a data-au-nav="{{_id}}" href="{{nav _id 'href'}}">
+                                <img data-au-image="{{_id}}[img]" src="{{loadImg '[img]' '600x300' _id}}" class="img-responsive">
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <h3><a data-au-nav="{{_id}}" href="{{nav _id 'href'}}" data-au-label="{{_id}}[title]">{{c '[title]' _id}}</a>
+                            </h3>
+                            <p>by <a href="#" data-au-label="{{_id}}[author]">{{c '[author]' _id}}</a>
+                            </p>
+                            <p data-type="wysihtml5" data-au-label="{{_id}}[summary]">{{c '[summary]' _id}}</p>
+                            <a class="btn btn-primary" data-au-nav="{{_id}}" href="{{nav _id 'href'}}" data-au-label="read_more">{{c 'read_more'}}</a>
+                        </div>
+                    </div>
+                    <hr>
+                {{/with}}
+            {{/each}}
+        {{/with}}
+
+        <div class="row text-center">
+
+            <div class="col-lg-12">
+                <ul class="pagination">
+                    {{#with paging path 'blog_items' 5}}
+                        {{#each this}}
+                            <li data-au-filter='{"record":"{{forRecord}}", "skip":{{skip}}, "limit":{{limit}}}' class="{{isActive}}"><a href="#">{{current}}</a></li>
+                        {{/each}}
+                    {{/with}}
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <!-- /.container -->
+</template>

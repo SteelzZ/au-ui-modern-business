@@ -1,0 +1,188 @@
+<template name="home">
+    <div id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div data-au-image="{{path}}slide_one_image" class="fill" style="background:url('{{loadImg 'slide_one_image' '1900x1080' path}}') no-repeat center center;"></div>
+                <div class="carousel-caption">
+                    <h1 data-mode="inline" data-type="wysihtml5" data-au-label="slide_one">{{{c 'slide_one'}}}</h1>
+                </div>
+            </div>
+            <div class="item">
+                <div data-au-image="{{path}}slide_two_image" class="fill" style="background:url('{{loadImg 'slide_two_image' '1900x1080' path}}') no-repeat center center;"></div>
+                <div class="carousel-caption">
+                    <h1 data-mode="inline" data-type="wysihtml5" data-au-label="slide_two">{{{c 'slide_two'}}}</h1>
+                </div>
+            </div>
+            <div class="item">
+                <div data-au-image="{{path}}slide_three_image" class="fill" style="background:url('{{loadImg 'slide_three_image' '1900x1080' path}}') no-repeat center center;"></div>
+                <div class="carousel-caption">
+                    <h1 data-mode="inline" data-type="wysihtml5" data-au-label="slide_three">{{{c 'slide_three'}}}</h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </div>
+
+    <div class="section">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <h3><i class="fa fa-check-circle"></i> <span data-au-label="home_block_1">{{c 'home_block_1'}}</span></h3>
+                    <p data-type="wysihtml5" data-au-label="home_block_1_text">{{{c 'home_block_1_text'}}}</p>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h3><i class="fa fa-pencil"></i> <span data-au-label="home_block_2">{{c 'home_block_2'}}</span></h3>
+                    <p data-type="wysihtml5" data-au-label="home_block_2_text">{{{c 'home_block_2_text'}}}</p>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h3><i class="fa fa-folder-open"></i> <span data-au-label="home_block_3">{{c 'home_block_3'}}</span></h3>
+                    <p data-type="wysihtml5" data-au-label="home_block_3_text">{{{c 'home_block_3_text'}}}</p>
+                </div>
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.section -->
+
+    <div class="section-colored text-center">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 data-au-label="home_middle_block_title">{{c 'home_middle_block_title'}}</h2>
+                    <p data-au-label="home_middle_block_text">{{c 'home_middle_block_text'}}</p>
+                    <hr>
+                </div>
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.section-colored -->
+
+    <div class="section">
+
+        <div class="container">
+
+            <div class="row" data-au-record="home_portfolio">
+                <div class="col-lg-12 text-center">
+                    <h2 data-au-label="{{path}}portfolio_title">{{c 'portfolio_title' path}}</h2>
+                    <hr>
+                </div>
+                {{#with recordByPlace '' 'home_portfolio'}}
+                    {{#each sorted children _id 3}}
+                        {{#with this}}
+                            <div data-au-sort-order="{{_id}}" data-au-deletable="{{_id}}" class="col-lg-4 col-md-4 col-sm-6">
+                                <a href="{{nav _id 'href'}}">
+                                    <img data-au-nav="{{_id}}" data-au-image="{{_id}}[icon]" class="img-responsive img-home-portfolio" src="{{loadImg '[icon]' '700x450' _id}}"/>
+                                </a>
+                            </div>
+                        {{/with}}
+                    {{/each}}
+                {{/with}}
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.section -->
+
+    <div class="section-colored">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <h2 data-au-label="{{path}}home_why_points_title">{{c 'home_why_points_title' path}}</h2>
+                    <ul data-au-record="home_why_points">
+                        {{#with recordByPlace '' 'home_why_points'}}
+                            {{#each sorted children _id}}
+                                {{#with this}}
+                                    <li data-au-sort-order="{{_id}}" data-au-deletable="{{_id}}" data-au-label="{{_id}}[title]">{{c 'title' _id}}</li>
+                                {{/with}}
+                            {{/each}}
+                        {{/with}}
+                    </ul>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <img data-au-image="{{path}}why_img" class="img-responsive" src="{{loadImg 'why_img' '700x450' path}}">
+                </div>
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.section-colored -->
+
+    <div class="section">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <img data-au-image="{{path}}why_img_right" class="img-responsive" src="{{loadImg 'why_img_right' '700x450' path}}">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <h2 data-au-label="{{path}}home_why_points_title_right">{{c 'home_why_points_title_right' path}}</h2>
+                    <ul data-au-record="home_why_points_right">
+                        {{#with recordByPlace '' 'home_why_points_right'}}
+                            {{#each sorted children _id}}
+                                {{#with this}}
+                                    <li data-au-sort-order="{{_id}}" data-au-deletable="{{_id}}" data-au-label="{{_id}}[title]">{{c 'title' _id}}</li>
+                                {{/with}}
+                            {{/each}}
+                        {{/with}}
+                    </ul>
+                </div>
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.section -->
+
+    <div class="container">
+
+        <div class="row well">
+            <div class="col-lg-8 col-md-8">
+                <h4 data-au-label="see_more_title">{{c 'see_more_title'}}</h4>
+                <p data-type="textarea" data-au-label="see_more_text">{{c 'see_more_text'}}</p>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <a data-au-nav="see_more" class="btn btn-lg btn-primary pull-right" href="{{nav 'see_more' 'href'}}" data-au-label="see_more_button_title">{{c 'see_more_button_title'}}</a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+</template>

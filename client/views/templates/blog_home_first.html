@@ -1,0 +1,101 @@
+<template name="blog_home_first">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header"><span data-au-label="{{path}}page_title">{{c 'page_title' path}}</span>
+                    <small data-au-label="{{path}}page_title_small">{{c 'page_title_small' path}}</small>
+                </h1>
+                <!-- <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li class="active">Blog Home 1</li>
+                </ol> -->
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-8" data-au-record="{{path}}blog_items">
+
+                {{#with recordByPlace path 'blog_items'}}
+                    {{#each sorted children _id 5}}
+                        {{#with this}}
+                            <span data-au-sort-order="{{_id}}" data-au-deletable="{{_id}}">
+                                <h1><a data-au-nav="{{_id}}" href="{{nav _id 'href'}}" data-au-label="{{_id}}[title]">{{c '[title]' _id}}</a></h1>
+                                <p class="lead">by <a href="#" data-au-label="{{_id}}[author]">{{c '[author]' _id}}</a>
+                                </p>
+                                <hr>
+                                <p data-type="date" data-au-label="{{_id}}[when]">{{c '[when]' _id}}</p>
+                                <hr>
+                                <a data-au-nav="{{_id}}" href="{{nav _id 'href'}}">
+                                    <img data-au-image="{{_id}}[img]" src="{{loadImg '[img]' '900x300' _id}}" class="img-responsive">
+                                </a>
+                                <hr>
+                                <p data-type="wysihtml5" data-au-label="{{_id}}[summary]">{{c '[summary]' _id}}</p>
+                                <a class="btn btn-primary" data-au-nav="{{_id}}" href="{{nav _id 'href'}}" data-au-label="read_more">{{c 'read_more'}}</a>
+
+                                <hr>
+                            </span>
+                        {{/with}}
+                    {{/each}}
+                {{/with}}
+
+            </div>
+
+            <div class="col-lg-4">
+                <div class="well">
+                    <h4>Blog Search</h4>
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                    <!-- /input-group -->
+                </div>
+                <!-- /well -->
+                <div class="well">
+                    <h4>Popular Blog Categories</h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                                <li><a href="#dinosaurs">Dinosaurs</a>
+                                </li>
+                                <li><a href="#spaceships">Spaceships</a>
+                                </li>
+                                <li><a href="#fried-foods">Fried Foods</a>
+                                </li>
+                                <li><a href="#wild-animals">Wild Animals</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                                <li><a href="#alien-abductions">Alien Abductions</a>
+                                </li>
+                                <li><a href="#business-casual">Business Casual</a>
+                                </li>
+                                <li><a href="#robots">Robots</a>
+                                </li>
+                                <li><a href="#fireworks">Fireworks</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- /well -->
+                <div class="well">
+                    <h4>Side Widget Well</h4>
+                    <p>Bootstrap's default well's work great for side widgets! What is a widget anyways...?</p>
+                </div>
+                <!-- /well -->
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+</template>

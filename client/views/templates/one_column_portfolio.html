@@ -1,0 +1,53 @@
+<template name="one_column_portfolio">
+    <div class="container" data-au-record="{{path}}projects">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header"><span data-au-label="{{path}}page_title">{{c 'page_title' path}}</span>
+                    <small data-au-label="{{path}}page_title_small">{{c 'page_title_small' path}}</small>
+                </h1>
+                <!-- <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li class="active">One Column Portfolio</li>
+                </ol> -->
+            </div>
+        </div>
+
+        {{#with recordByPlace path 'projects'}}
+            {{#each sorted children _id 5}}
+                {{#with this}}
+                    <div data-au-sort-order="{{_id}}" data-au-deletable="{{_id}}" class="row">
+                        <div class="col-md-7">
+                            <a data-au-nav="{{_id}}" href="{{nav _id 'href'}}">
+                                <img data-au-image="{{_id}}[icon]" class="img-responsive" src="{{loadImg '[icon]' '750x350' _id}}">
+                            </a>
+                        </div>
+                        <div class="col-md-5">
+                            <h3 data-au-label="{{_id}}[title]">{{c '[title]' _id}}</h3>
+                            <h4 data-au-label="{{_id}}[subtitle]">{{c '[subtitle]' _id}}</h4>
+                            <p data-type="textarea" data-au-label="{{_id}}[desc]">{{c '[desc]' _id}}</p>
+                            <a data-au-nav="{{_id}}" class="btn btn-primary" href="{{nav _id 'href'}}"><span data-au-label="view_project">{{c 'view_project'}}</span> <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                    <hr>
+                {{/with}}
+            {{/each}}
+        {{/with}}
+
+        <div class="row text-center">
+
+            <div class="col-lg-12">
+                <ul class="pagination">
+                    {{#with paging path 'projects' 5}}
+                        {{#each this}}
+                            <li data-au-filter='{"record":"{{forRecord}}", "skip":{{skip}}, "limit":{{limit}}}' class="{{isActive}}"><a href="#">{{current}}</a></li>
+                        {{/each}}
+                    {{/with}}
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</template>

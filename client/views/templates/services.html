@@ -1,0 +1,108 @@
+<template name="services">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header"><span data-au-label="{{path}}page_title">{{c 'page_title' path}}</span>
+                    <small data-au-label="{{path}}page_title_small">{{c 'page_title_small' path}}</small>
+                </h1>
+                <!-- <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li class="active">Services</li>
+                </ol> -->
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+
+            <div class="col-lg-12">
+                <img data-au-image="{{path}}header_image" class="img-responsive" src="{{loadImg 'header_image' '1200x300' path}}">
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <!-- Service Paragraphs -->
+
+        <div class="row">
+
+            <div class="col-md-8">
+                <h2 class="page-header" data-au-label="{{path}}premium_service_title">{{c 'premium_service_title'}}</h2>
+                <p data-type="wysihtml5" data-au-label="{{path}}premium_service_desc">{{{c 'premium_service_desc' path}}}</p>
+            </div>
+
+            <div class="col-md-4">
+                <h2 class="page-header" data-au-label="{{path}}premium_service_other_title">{{c 'premium_service_other_title'}}</h2>
+                <p data-type="wysihtml5" data-au-label="{{path}}premium_service_other_desc">{{{c 'premium_service_other_desc' path}}}</p>
+                <a class="btn btn-primary" href="{{nav 'premium_service_link' 'href'}}" data-au-nav="premium_service_link" data-au-label="{{path}}premium_service_link">{{c 'premium_service_link' path}}</a>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <!-- Service Tabs -->
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h2 class="page-header" data-au-label="{{path}}service_title">{{c 'service_title' path}}</h2>
+                <ul id="myTab" class="nav nav-tabs" data-au-record="{{path}}services_tabs">
+                    {{#with recordByPlace path 'services_tabs'}}
+                        {{#each sorted children _id}}
+                            {{#with this}}
+                                <li data-au-sort-order="{{_id}}" data-au-deletable="{{_id}}"><a data-au-nav="{{_id}}" href="#{{nav _id 'href'}}" data-toggle="tab" data-au-label="{{_id}}[title]">{{c '[title]' _id}}</a></li>
+                            {{/with}}
+                        {{/each}}
+                    {{/with}}
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    {{#with recordByPlace path 'services_tabs'}}
+                        {{#each sorted children _id}}
+                            {{#with this}}
+                                <div data-au-sort-order="{{_id}}" data-au-deletable="{{_id}}" class="tab-pane fade" id="{{nav _id 'href'}}">
+                                    {{#if children}}
+                                        {{#each sorted children _id}}
+                                            {{#with this}}
+                                                <p data-type="wysihtml5" data-au-label="{{_id}}[desc]">{{{c '[desc]' _id}}}</p>
+                                            {{/with}}
+                                        {{/each}}
+                                    {{/if}}
+                                </div>
+                            {{/with}}
+                        {{/each}}
+                    {{/with}}
+                </div>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <!-- Service Images -->
+
+        <div class="row" data-au-record="{{path}}services_images">
+
+            <div class="col-lg-12">
+                <h2 class="page-header" data-au-label="{{path}}service_image">{{c 'service_image' path}}</h2>
+            </div>
+
+            {{#with recordByPlace path 'services_images'}}
+                {{#each sorted children _id 3}}
+                    {{#with this}}
+                        <div data-au-sort-order="{{_id}}" data-au-deletable="{{_id}}" class="col-sm-4">
+                            <img data-au-image="{{_id}}[icon]" class="img-responsive" src="{{loadImg '[icon]' '750x450' _id}}">
+                            <h3 data-au-label="{{_id}}[title]">{{c '[title]' _id}}</h3>
+                            <p data-type="wysihtml5" data-au-label="{{_id}}[desc]">{{c '[desc]' _id}}</p>
+                            <a data-au-nav="{{_id}}" class="btn btn-link btn-sm pull-right" href="/{{nav _id 'href'}}">More <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    {{/with}}
+                {{/each}}
+            {{/with}}
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+</template>
