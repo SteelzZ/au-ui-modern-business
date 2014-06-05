@@ -6,7 +6,7 @@
 
 ## About
 
-## Documentation
+This project template package uses [au-cmsinn](https://github.com/SteelzZ/au-cmsinn) package. For more details see [au-cmsinn](https://github.com/SteelzZ/au-cmsinn) package docs.
 
 ## Installation
 
