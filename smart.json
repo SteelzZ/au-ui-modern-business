@@ -3,9 +3,9 @@
   "description": "Bootstrap 3 template with integrated CmsInn",
   "homepage": "https://github.com/SteelzZ/au-ui-modern-business",
   "author": "Tomas Bartkus <to.bartkus@gmail.com> (http://codetemple.blogspot.com)",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "git": "https://github.com/SteelzZ/au-ui-modern-business.git",
   "packages": {
-    "au-cmsinn":"0.0.1"
+    "au-cmsinn":{}
   }
 }
