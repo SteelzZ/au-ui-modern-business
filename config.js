@@ -30,7 +30,9 @@ if (Meteor.isClient) {
         }
     });
 
-    Router.configure({
+    // Will proxy this config to Router.configure( ... );
+    CmsInn.configure({
+        loadingTemplate: 'loading',
         layoutTemplate: 'layout'
     });
 }

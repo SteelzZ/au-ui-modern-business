@@ -9,6 +9,7 @@ Package.on_use(function (api, where) {
     api.add_files([
         'client/styles/css/modern-business.css',
 
+        'client/views/templates/loading.html',
         'client/views/templates/layout.html',
         'client/views/templates/home.html',
         'client/views/templates/about.html',
@@ -26,6 +27,8 @@ Package.on_use(function (api, where) {
         'client/views/templates/services.html',
         'client/views/templates/single_portfolio_item.html',
         //'client/views/templates/side_bar.html',
+
+        'assets/loader.gif',
     
         'config.js'
     ], ['client', 'server']);
