@@ -2,7 +2,7 @@
 
 ## History
 
-###### Current version - In Development, unstable
+###### 0.0.3 - In Development, unstable
 
 ## About
 
