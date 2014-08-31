@@ -21,7 +21,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
-                <a class="navbar-brand" href="{{nav 'brand' 'href'}}" data-au-nav="brand" data-au-label="brand">{{c 'brand'}}</a>
+                <a class="navbar-brand" href="{{nav 'brand' 'href'}}" data-au-nav="brand" data-au-label="brand_name">{{c 'brand_name'}}</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -32,18 +32,18 @@
                         {{#with this}}
                             {{#if children}}
                                 <li data-au-sort-order="{{_id}}" data-au-deletable="{{_id}}" class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" data-au-nav="{{_id}}" href="{{nav _id 'href'}}"><span data-au-label="{{_id}}[title]">{{c '[title]' _id}}</span><strong class="caret"></strong></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown" data-au-nav="{{_id}}[lang]" href="{{nav '[lang]' 'href' _id}}"><span data-au-label="{{_id}}[title]">{{c '[title]' _id}}</span><strong class="caret"></strong></a>
                                     <ul class="dropdown-menu" data-au-sortable="true">
                                         {{#each sorted children _id}}
                                             {{#with this}}
-                                                <li data-au-deletable="{{_id}}" data-au-sort-order="{{_id}}"><a data-au-locale="{{_id}}" data-au-nav="{{_id}}" href="{{nav _id 'href'}}" data-au-label="{{_id}}[title]">{{c '[title]' _id}}</a></li>
+                                                <li data-au-deletable="{{_id}}" data-au-sort-order="{{_id}}"><a data-au-locale="{{_id}}" data-au-nav="{{_id}}[lang]" href="{{nav '[lang]' 'href' _id}}" data-au-label="{{_id}}[title]">{{c '[title]' _id}}</a></li>
                                             {{/with}}
                                         {{/each}}    
                                     </ul>
                                 </li> 
                             {{else}}
                                 <li data-au-sort-order="{{_id}}" data-au-deletable="{{_id}}" class="{{nav _id 'isActive'}}">
-                                    <a data-au-locale="{{_id}}" data-au-nav="{{_id}}" href="{{nav _id 'href'}}" data-au-label="{{_id}}[title]">{{c 'title' _id}}</a>
+                                    <a data-au-locale="{{_id}}" data-au-nav="{{_id}}[lang]" href="{{nav '[lang]' 'href' _id}}" data-au-label="{{_id}}[title]">{{c '[title]' _id}}</a>
                                 </li>
                             {{/if}}
                         {{/with}}
@@ -56,18 +56,18 @@
                         {{#with this}}
                             {{#if children}}
                                 <li data-au-sort-order="{{_id}}" data-au-deletable="{{_id}}" class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" data-au-nav="{{_id}}" href="{{nav _id 'href'}}"><span data-au-label="{{_id}}[title]">{{c '[title]' _id}}</span><strong class="caret"></strong></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown" data-au-nav="{{_id}}" href="{{nav '[link]' 'href' _id}}"><span data-au-label="{{_id}}[title]">{{c '[title]' _id}}</span><strong class="caret"></strong></a>
                                     <ul class="dropdown-menu" data-au-sortable="true">
                                         {{#each sorted children _id}}
                                             {{#with this}}
-                                                <li data-au-deletable="{{_id}}" data-au-sort-order="{{_id}}"><a data-au-nav="{{_id}}" href="{{nav _id 'href'}}" data-au-label="{{_id}}[title]">{{c '[title]' _id}}</a></li>
+                                                <li data-au-deletable="{{_id}}" data-au-sort-order="{{_id}}"><a data-au-nav="{{_id}}[link]" href="{{nav '[link]' 'href' _id}}" data-au-label="{{_id}}[title]">{{c '[title]' _id}}</a></li>
                                             {{/with}}
                                         {{/each}}    
                                     </ul>
                                 </li>
                             {{else}}
                                 <li data-au-sort-order="{{_id}}" data-au-deletable="{{_id}}" class="{{nav _id 'isActive'}}">
-                                    <a data-au-nav="{{_id}}" href="{{nav _id 'href'}}" data-au-label="{{_id}}[title]">{{c 'title' _id}}</a>
+                                    <a data-au-nav="{{_id}}[link]" href="{{nav '[link]' 'href' _id}}" data-au-label="{{_id}}[title]">{{c '[title]' _id}}</a>
                                 </li>
                             {{/if}}
                         {{/with}}
