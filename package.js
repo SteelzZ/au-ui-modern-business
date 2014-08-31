@@ -1,11 +1,16 @@
 Package.describe({
-    summary: "Bootstrap 3 template with integrated CmsInn "
+    name: "steelzz:au-ui-modern-business",
+    summary: "Bootstrap 3 template with integrated CmsInn",
+    homepage: "https://github.com/SteelzZ/au-ui-modern-business",
+    version: "0.0.6",
+    git: "https://github.com/SteelzZ/au-ui-modern-business.git"
 });
 
 Package.on_use(function (api, where) {
-    api.imply('au-cmsinn');
-    api.use(['au-cmsinn'], ['client', 'server']);
-    api.use(['jquery',  'bootstrap-3', 'templating'], ['client']);
+    api.imply('steelzz:au-cmsinn@0.0.12');
+
+    api.use(['steelzz:au-cmsinn@0.0.12'], ['client', 'server']);
+    api.use(['jquery@1.0.0', 'pfafman:bootstrap-3@3.2.0', 'templating@1.0.0'], ['client']);
     api.add_files([
         'client/styles/css/modern-business.css',
 

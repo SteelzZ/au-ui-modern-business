@@ -2,7 +2,7 @@
 
 ## History
 
-###### 0.0.3 - In Development, unstable
+###### 0.0.5 - In Development, unstable
 
 ## About
 
@@ -10,8 +10,6 @@ This project template package uses [au-cmsinn](https://github.com/SteelzZ/au-cms
 
 ## Installation
 
-This package can be installed with [Meteorite](https://github.com/oortcloud/meteorite/). From inside a Meteorite-managed app:
-
 ``` sh
-$ mrt add au-ui-modern-business
+$ meteor add steelzz:au-ui-modern-business
 ```
